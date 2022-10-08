@@ -16,6 +16,7 @@
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
       rgba(0, 0, 0, 0.05) 0px 5px 10px;
+      overflow: hidden;
     .title {
       color: #4c9460;
       font-weight: 600;
@@ -42,6 +43,9 @@
       border-top-left-radius: 0.8rem;
       border-top-right-radius: 0.8rem;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      transform: translateY(100%);
+        z-index: 1;
+        transition: transform 0.7s ease-in-out;
     }
     &:hover img{
         filter: grayscale(1);
@@ -49,6 +53,7 @@
     &:hover .image-info {
         visibility: visible;
         opacity: 1;   
+        transform: translateY(0%);
     }
   }
 }
