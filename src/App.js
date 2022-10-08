@@ -10,8 +10,8 @@ function App() {
 
   useEffect(() => {
     const fetchPlaces = async () => {
-      const SERVER_URL = 'http://localhost:5000'
-      const res = await fetch(`${SERVER_URL}/tourplaces`)
+      const SERVER_URL = 'https://tourplaces-json-server.herokuapp.com/tourplaces'
+      const res = await fetch(SERVER_URL)
       const data = await res.json()
       setTourPlaces(data)
     }
