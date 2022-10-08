@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Card from './components/Card/Card';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
+
+  const [ tourplaces, setTourPlaces ] = useState([])
+
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      const SERVER_URL = 'http://localhost:5000'
+      const res = await fetch(`${SERVER_URL}/tourplaces`)
+      const data = await res.json()
+      setTourPlaces(data)
+    }
+    fetchPlaces()
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Header/>
+      <Card tourplaces={tourplaces}/>
     </div>
   );
 }

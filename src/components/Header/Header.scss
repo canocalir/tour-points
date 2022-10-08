@@ -1,0 +1,11 @@
+.main-heading{
+    text-align: center;
+    color: #fff;
+    padding-top: 2rem;
+}
+
+@media screen and (max-width: 560px) {
+    .main-heading{
+        font-size: 1.2rem;
+    }
+}
